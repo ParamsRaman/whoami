@@ -14,13 +14,17 @@ def compact(args):
     lines = open(inputfile, 'r')
     for line in lines:
         tokens = line.strip().split(' ', 1)
-        #print tokens[0] + ", " + tokens[1]
         if int(tokens[0]) not in mapping:
             mapping.append(int(tokens[0]))
     lines.close()
     mapping.sort()
     #print str(len(mapping))
     #print mapping
+
+    f_map = open("compact_mapping.txt", "w")
+    for m in mapping:
+        f_map.write(str(m) + "\n")
+    f_map.close()
 
     lines = open(inputfile, 'r')
     for line in lines:
