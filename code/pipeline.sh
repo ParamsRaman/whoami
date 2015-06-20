@@ -3,12 +3,12 @@
 # Assemble the dataset
 
 rm ../data/csv/biglist.csv
-cat ../data/csv/datapacks/australia.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/bangladesh.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/brazil.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/canada.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/australia.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/bangladesh.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/brazil.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/canada.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/china.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/colombia.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+3cat ../data/csv/datapacks/colombia.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/france.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/germany.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/greece.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
@@ -20,25 +20,20 @@ cat ../data/csv/datapacks/iran.csv | perl -MList::Util=shuffle -e 'print shuffle
 cat ../data/csv/datapacks/italy.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/japan.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/kenya.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/mexico.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/netherlands.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/philippines.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/mexico.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/netherlands.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/philippines.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/poland.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/portugal.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/puerto-rico.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/portugal.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/puerto-rico.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/russia.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/south-korea.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/south-korea.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/spain.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/taiwan.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/taiwan.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/turkey.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-cat ../data/csv/datapacks/uk.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
+#cat ../data/csv/datapacks/uk.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/us.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
 cat ../data/csv/datapacks/vietnam.csv | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> ../data/csv/biglist.csv
-
-#round()
-#{
-#    echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)*(10^$2)" | bc))
-#};
 
 NUM_LINES=8002
 NUM_FEATURES=82
@@ -59,10 +54,13 @@ a=0.75
 b=0.25
 #tr_p=$(round $x/$a 2)
 #te_p=$(round $x/$b 2)
-tr_p=4500
-te_p=2500
+tr_p=5500
+te_p=1300
 
 echo "total lines: $x, tr %: ${tr_p}, te %: ${te_p}"
+
+cat train_compacted.txt | perl -MList::Util=shuffle -e 'print shuffle(<STDIN>);' >> toto
+mv toto train_compacted.txt
 
 head -n ${tr_p} train_compacted.txt > train2.txt
 tail -n ${te_p} train_compacted.txt > test2.txt

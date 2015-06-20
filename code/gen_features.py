@@ -56,34 +56,53 @@ def compute_features(first_name, last_name):
     63-72. no of times freq 2grams appear
     73-82. no of times freq 3grams appear
     """
+    feature_counter = 1
+    result = ""
+    
     #for first_name
     if first_name=="":
-        result = " " + " ".join([str(i+1)+":0" for i in range(0,31)])
+        result = result + " " + " ".join([str(i)+":0" for i in range(feature_counter,feature_counter+31)])
+        feature_counter = feature_counter + 31
     else:
-        result = " 1:" + str(len(first_name)) + " 2:" + str(count_vowels(first_name)) + " 3:" + str(count_conson(first_name)) + " 4:" + str(get_first(first_name)) + " 5:" + str(get_last(first_name))
+        result = result + " " + str(feature_counter) + ":" + str(len(first_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(count_vowels(first_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(count_conson(first_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(get_first(first_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(get_last(first_name))
+        feature_counter = feature_counter + 1
 
         alph_count = count_alph(first_name)
         for index, count in enumerate(alph_count):
-            result = result + " " + str(6+index) + ":" + str(count)
-            #if count > 0:
-            #    result = result + " " + str(6+index) + ":1"
-            #else:
-            #    result = result + " " + str(6+index) + ":0"
+            result = result + " " + str(feature_counter) + ":" + str(count)
+            feature_counter = feature_counter + 1
+    
 
     #for last_name
     if last_name=="":
-        result = result + " " + " ".join([str(i+1)+":0" for i in range(31,62)])
+        result = result + " " + " ".join([str(i)+":0" for i in range(feature_counter,feature_counter+31)])
+        feature_counter = feature_counter + 31
     else:
-        result = result + " 32:" + str(len(last_name)) + " 33:" + str(count_vowels(last_name)) + " 34:" + str(count_conson(last_name)) + " 35:" + str(get_first(last_name)) + " 36:" + str(get_last(last_name))
+        result = result + " " + str(feature_counter) + ":" + str(len(last_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(count_vowels(last_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(count_conson(last_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(get_first(last_name))
+        feature_counter = feature_counter + 1
+        result = result + " " + str(feature_counter) + ":" + str(get_last(last_name))
+        feature_counter = feature_counter + 1
 
         alph_count = count_alph(last_name)
         for index, count in enumerate(alph_count):
-            result = result + " " + str(37+index) + ":" + str(count)
-            #if count > 0:
-            #    result = result + " " + str(37+index) + ":1"
-            #else:
-            #    result = result + " " + str(37+index) + ":0"
+            result = result + " " + str(feature_counter) + ":" + str(count)
+            feature_counter = feature_counter + 1
     
+
     #for first and last name, compute count of top10 2grams
     two_grams=["an", "ar", "ra", "na", "ma", "ri", "in", "er", "el", "ha"]
     two_grams_count = [0 for i in range(0,10)]
@@ -93,7 +112,8 @@ def compute_features(first_name, last_name):
         if t in two_grams:
             two_grams_count[two_grams.index(t)] = two_grams_count[two_grams.index(t)]+1
     for ind,val in enumerate(two_grams_count):
-        result = result + " " + str(63+ind) + ":" + str(val)
+        result = result + " " + str(feature_counter) + ":" + str(val)
+        feature_counter = feature_counter + 1
     
     #for first and last name, compute count of top10 3grams
     three_grams=["ana", "ari", "mar", "ara", "and", "ina", "han", "ian", "eli", "ann"]
@@ -104,7 +124,8 @@ def compute_features(first_name, last_name):
         if t in three_grams:
             three_grams_count[three_grams.index(t)] = three_grams_count[three_grams.index(t)]+1
     for ind,val in enumerate(three_grams_count):
-        result = result + " " + str(73+ind) + ":" + str(val)
+        result = result + " " + str(feature_counter) + ":" + str(val)
+        feature_counter = feature_counter + 1
     
     return result
 
